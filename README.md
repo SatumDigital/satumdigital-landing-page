@@ -6,7 +6,7 @@ Marketing site + digital business card. SvelteKit + Vite, statically prerendered
 
 ```bash
 npm install
-npm run dev      # http://localhost:3000
+npm run dev      # http://localhost:3000 
 npm run build    # outputs to ./build
 npm run preview  # preview the production build
 ```
