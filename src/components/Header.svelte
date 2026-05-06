@@ -1,80 +1,53 @@
 <script>
-    import Layout from '../routes/+layout.svelte';
-    import { isDropdownOpen } from '../store';
     import { onMount } from 'svelte';
-    import CtAs from './CTAs.svelte';
-    
-    let dropdownOpen = false;
-    
-    $: $isDropdownOpen = dropdownOpen;
-    
-    function toggleDropdown() {
-        dropdownOpen = !dropdownOpen;
-        isDropdownOpen.set(dropdownOpen);
-    }
 
-    function reroute(href) {}
+    let scrolled = $state(false);
+    let menuOpen = $state(false);
+
+    function closeMenu() { menuOpen = false; }
+
+    onMount(() => {
+        const onScroll = () => { scrolled = window.scrollY > 8; };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+        const onKey = (e) => { if (e.key === 'Escape') closeMenu(); };
+        document.addEventListener('keydown', onKey);
+        return () => {
+            window.removeEventListener('scroll', onScroll);
+            document.removeEventListener('keydown', onKey);
+        };
+    });
 </script>
 
-<header class="flex flex-col sticky top-0 z-20 bg-white">
-    <div class="max-w-[1400px] mx-auto w-full flex items-center justify p-2 py-6">
-        <a href="/" class="flex items-center">
-            <img src="favicon.svg" alt="Satum Digital" class="w-10 h-10 mr-4">
-            <h1 class="text-lg md:text-xl lg:text-2xl font-bold">Satum Digital</h1>
+<header class="site-header" class:scrolled>
+    <div class="container header-inner">
+        <a href="/" class="logo" aria-label="Satum Digital home">
+            <img src="favicon.svg" alt="" class="logo-mark" />
+            <span class="logo-word">Satum Digital</span>
         </a>
-        <button class="ml-auto md:hidden grid place-items-center" aria-label="Toggle navigation" on:click={toggleDropdown}>
-            <i class="fa-solid fa-bars text-xl"></i>
-        </button>
-        <nav class="ml-auto hidden md:flex font-medium items-center gap-4 lg:gap-6">
-            <a class="navlinks">About</a>
-            <a class="navlinks">Services</a>
-            <a class="navlinks">Consulting</a>
-            <a class="navlinks">Reviews</a>
-            <a class="navlinks">Pricing</a>
-            <a class="navlinks">FAQs</a>
-            <button class="specialBtn" href="/contact" on:click={reroute}>
-                <p>Secure your network</p> 
-            </button>
+        <nav class="nav-desktop" aria-label="Primary">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#process">Process</a>
+            <a href="#engage">Engage</a>
+            <a href="#faqs">FAQs</a>
         </nav>
-        {#if $isDropdownOpen}
-            <div class="fixed top-0 left-0 w-screen h-screen border-b bg-white z-50 flex flex-col gap-8 p-5 px-2 md:hidden">
-                <div class="flex items-center justify-between gap-4 border-b pb-2">
-                    <a href="/" class="flex items-center" on:click={toggleDropdown}>
-                        <img src="favicon.svg" alt="Satum Digital" class="w-10 h-10 mr-4">
-                        <h1 class="text-lg md:text-xl lg:text-2xl font-bold">Satum Digital</h1>
-                    </a>
-                    <button class="ml-auto md:hidden grid place-items-center" aria-label="Toggle navigation" on:click={toggleDropdown}>
-                        <i class="fa-solid fa-times text-xl"></i>
-                    </button>
-                </div>
-                <div class="flex flex-col flex-1 gap-4 font-medium">
-                    <a class="navlinks text-left text-2xl border-none outline-none p-2 px-4">
-                        About
-                        <i class="fa-solid fa-chevron-right text-lg px-2"></i>
-                    </a><a class="navlinks text-left text-2xl border-none outline-none p-2 px-4">
-                        Services
-                        <i class="fa-solid fa-chevron-right text-lg px-2"></i>
-                    </a>
-                    <a class="navlinks text-left text-2xl border-none outline-none p-2 px-4">
-                        Consulting
-                        <i class="fa-solid fa-chevron-right text-lg px-2"></i>
-                    </a>
-                    <a class="navlinks text-left text-2xl border-none outline-none p-2 px-4">
-                        Reviews
-                        <i class="fa-solid fa-chevron-right text-lg px-2"></i>
-                    </a>
-                    <a class="navlinks text-left text-2xl border-none outline-none p-2 px-4">
-                        Pricing
-                        <i class="fa-solid fa-chevron-right text-lg px-2"></i>
-                    </a>
-                    <a class="navlinks text-left text-2xl border-none outline-none p-2 px-4">
-                        FAQs
-                        <i class="fa-solid fa-chevron-right text-lg px-2"></i>
-                    </a>
-                    <div class="p-2 px-2"><CtAs /></div>
-                    
-                </div>
-            </div>        
-        {/if}
+        <a href="#contact" class="btn btn-outline btn-header">Book a call</a>
+        <button
+            class="menu-toggle"
+            aria-label="Open menu"
+            aria-expanded={menuOpen}
+            onclick={() => (menuOpen = !menuOpen)}
+        >
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <div class="nav-mobile" class:open={menuOpen}>
+        <a href="#about" onclick={closeMenu}>About</a>
+        <a href="#services" onclick={closeMenu}>Services</a>
+        <a href="#process" onclick={closeMenu}>Process</a>
+        <a href="#engage" onclick={closeMenu}>Engage</a>
+        <a href="#faqs" onclick={closeMenu}>FAQs</a>
+        <a href="#contact" class="btn btn-primary btn-block" onclick={closeMenu}>Book a call</a>
     </div>
 </header>
