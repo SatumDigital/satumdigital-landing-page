@@ -1,5 +1,4 @@
 import adapter from '@sveltejs/adapter-static';
-import copy from 'rollup-plugin-copy';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
