@@ -1,15 +1,15 @@
 <section class="hero">
     <div class="container hero-inner">
-        <div class="eyebrow"><span class="dot"></span> Now booking Q3 engagements</div>
+        <a href="#ibelo" class="eyebrow"><span class="dot"></span> Now building ibelo · private beta</a>
         <h1 class="display reveal">
             Build the <span class="accent">digital backbone</span><br/>of your business.
         </h1>
         <p class="lead reveal">
-            We design, build, and maintain the software and IT systems that ambitious teams rely on to move forward — not just to keep up.
+            Satum Digital Inc. is a Canadian software company. We build SaaS products that help people start and run a business, beginning with ibelo, and we build software for clients.
         </p>
         <div class="hero-ctas reveal">
-            <a href="#contact" class="btn btn-primary">Start a project</a>
-            <a href="#services" class="btn btn-ghost">See our services <span aria-hidden="true">→</span></a>
+            <a href="#ibelo" class="btn btn-primary">Meet ibelo</a>
+            <a href="#contact" class="btn btn-ghost">Work with us <span aria-hidden="true">→</span></a>
         </div>
     </div>
 </section>

@@ -1,63 +1,52 @@
 <section class="services" id="services">
     <div class="container">
-        <div class="section-head reveal">
-            <span class="kicker">Services</span>
-            <h2 class="section-title">Everything you need <span class="accent-soft">in one room.</span></h2>
-            <p class="section-sub">A small senior team that handles the strategy, the build, and the boring stuff that keeps it running.</p>
+        <div class="services-layout">
+            <div class="services-intro reveal">
+                <span class="kicker">Client work</span>
+                <h2 class="section-title">We build <span class="accent-soft">for clients,</span> too.</h2>
+                <p>Whatever you need built, moved to the cloud or kept running, we can help. Every project starts with a free 30-minute call and a written quote.</p>
+                <a href="#contact" class="btn btn-primary">Start a project</a>
+            </div>
+            <ul class="service-list reveal">
+                <li class="service-row">
+                    <h3>Software solutions</h3>
+                    <p>Custom web apps, internal tools and automations on Microsoft .NET, built around how your team actually works.</p>
+                    <span class="service-meta">Web apps · Internal tools · Automations</span>
+                </li>
+                <li class="service-row">
+                    <h3>Cloud &amp; security</h3>
+                    <p>Migrations, hardening and monitoring on Microsoft Azure, Cloudflare and other clouds, with the backups and access controls you should already have.</p>
+                    <span class="service-meta">Migrations · Security · Monitoring</span>
+                </li>
+                <li class="service-row">
+                    <h3>Managed IT</h3>
+                    <p>Day-to-day IT handled: devices, helpdesk and backups, so problems get fixed before anyone notices.</p>
+                    <span class="service-meta">Devices · Helpdesk · Backups</span>
+                </li>
+                <li class="service-row">
+                    <h3>Consulting</h3>
+                    <p>Architecture, audits and roadmaps for teams modernizing old systems or starting something new.</p>
+                    <span class="service-meta">Architecture · Audits · Roadmaps</span>
+                </li>
+            </ul>
         </div>
-        <div class="services-grid reveal">
-            <article class="service">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M3 7l9-4 9 4-9 4-9-4z M3 12l9 4 9-4 M3 17l9 4 9-4" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-                    </svg>
+
+        <div class="engage-models reveal" id="engage">
+            <span class="kicker">Ways to work together</span>
+            <div class="engage-grid">
+                <div>
+                    <h3>Project</h3>
+                    <p>A fixed scope and price, with a written proposal and milestones.</p>
                 </div>
-                <h3>Software Solutions</h3>
-                <p>Custom web apps, internal tools, and automations built around how your team actually works — not around what an off-the-shelf SaaS wants you to do.</p>
-                <ul class="service-tags">
-                    <li>Web apps</li><li>Internal tools</li><li>Automations</li>
-                </ul>
-            </article>
-            <article class="service">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <rect x="3" y="5" width="18" height="12" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
-                        <path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                        <path d="M7 10h4M7 13h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    </svg>
+                <div>
+                    <h3>Retainer</h3>
+                    <p>Monthly development, support or IT capacity, reviewed each quarter.</p>
                 </div>
-                <h3>Managed IT</h3>
-                <p>Day-to-day IT operations handled. Reliable infrastructure, fast support, and the kind of preventative maintenance you only notice when it isn't there.</p>
-                <ul class="service-tags">
-                    <li>Endpoint mgmt</li><li>Helpdesk</li><li>Backups</li>
-                </ul>
-            </article>
-            <article class="service">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M3 12c2-3 5-5 9-5s7 2 9 5c-2 3-5 5-9 5s-7-2-9-5z" stroke="currentColor" stroke-width="1.5"/>
-                        <circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.5"/>
-                    </svg>
+                <div>
+                    <h3>Fractional</h3>
+                    <p>Senior technical direction without a full-time hire.</p>
                 </div>
-                <h3>Consulting</h3>
-                <p>Strategy and architecture for teams modernizing legacy systems, rolling out something new, or trying to figure out which one to do first.</p>
-                <ul class="service-tags">
-                    <li>Architecture</li><li>Audits</li><li>Roadmaps</li>
-                </ul>
-            </article>
-            <article class="service">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M6 18a4 4 0 010-8 6 6 0 0111-2 5 5 0 011 10H6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-                        <path d="M9 13l3-3 3 3M12 10v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <h3>Cloud &amp; Security</h3>
-                <p>Migrate, secure, and scale on cloud infrastructure built to last — with the access controls, backups, and observability you should already have.</p>
-                <ul class="service-tags">
-                    <li>Migrations</li><li>Hardening</li><li>Observability</li>
-                </ul>
-            </article>
+            </div>
         </div>
     </div>
 </section>

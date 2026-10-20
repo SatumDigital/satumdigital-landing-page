@@ -7,6 +7,7 @@
                 <a href="mailto:sales@satumdigital.ca" class="btn btn-primary">sales@satumdigital.ca</a>
                 <a href="mailto:sales@satumdigital.ca?subject=Book%20a%2030-min%20call" class="btn btn-ghost">Book a 30-min call <span aria-hidden="true">→</span></a>
             </div>
+            <p class="cta-note">Here for ibelo? <a href="https://ibelo.app/">Join the waitlist at ibelo.app</a></p>
         </div>
     </div>
 </section>
