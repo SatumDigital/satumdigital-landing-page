@@ -26,17 +26,18 @@ npm run preview  # preview the production build
 
 ## Routes
 
-- `/` — company site for Satum Digital Inc.: Hero, ibelo (our first product), About, Client work (services and
+- `/` — company site for Satum Digital Inc.: Hero, ibelo (our first SaaS product), About, Client work (services and
   engagement models), FAQs, Contact. Title, description, preview tags and structured data are in
   `src/routes/(site)/+page.svelte`.
 - `/card` — Michael's digital business card (vCard download, QR, contact links). `noindex` so it doesn't show up in search.
 
 ## Background grid
 
-The grid behind the page is drawn on a canvas (`src/components/GridCanvas.svelte`). A click, or a tap on phones
-(scrolling doesn't count), sends a wave out from that point: the grid lines bend, the lines at the wave front turn
-blue, and a blue tint spreads and fades. The settings (speed, size, strength) are constants at the top of the
-component. With JavaScript off or "reduce motion" on, the plain CSS grid in `app.css` shows instead.
+The grid behind the page is drawn on a canvas (`src/components/GridCanvas.svelte`). A click on the empty
+background, or a tap on phones (scrolling doesn't count), sends a gentle wave out from that point: the grid lines
+bend, the lines at the wave front turn blue, and a faint blue tint spreads and fades. Clicks on the header, text,
+cards, buttons, links or footer don't start one (the `FOREGROUND` list in the component). The settings (speed,
+size, strength) are constants at the top of the component. With JavaScript off or "reduce motion" on, the plain CSS grid in `app.css` shows instead.
 
 ## Search and link previews
 
@@ -50,3 +51,6 @@ component. With JavaScript off or "reduce motion" on, the plain CSS grid in `app
 - Logos: `static/logo-mark.svg` is the black mark used on the page (header, footer, card). `static/favicon.svg` is
   for browser tabs only: it turns white in dark mode, so it would vanish on the white page.
 - Location in public copy is "Ontario, Canada" only, with no street address.
+- Third-party products (Microsoft .NET, Microsoft Azure, Cloudflare, GitHub) are named in text only, with the
+  trademark line in the footer. Microsoft doesn't allow its logos or product icons without a licence. Partner badges
+  would come with joining the Microsoft partner program.

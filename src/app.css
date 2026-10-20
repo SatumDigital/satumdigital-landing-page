@@ -439,6 +439,7 @@ section { padding: var(--section-pad) 0; }
   font-size: 1.02rem;
   line-height: 1.65;
 }
+.about-side { display: flex; flex-direction: column; gap: 22px; }
 .about-stats {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -466,6 +467,28 @@ section { padding: var(--section-pad) 0; }
   font-size: 0.88rem;
   color: var(--text-muted);
   line-height: 1.4;
+}
+/* "Built with": product names as plain grey text (Microsoft's rules don't allow its logos without a licence) */
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px 22px;
+  padding: 0 4px;
+}
+.stack-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+.stack-list { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.stack-list li {
+  font-size: 0.98rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #8a8a8a;
 }
 
 /* ---------- Product (ibelo) ---------- */
@@ -662,6 +685,13 @@ section { padding: var(--section-pad) 0; }
 }
 .footer-copy {
   font-size: 0.85rem;
+  color: var(--text-soft);
+}
+.footer-tm {
+  margin-top: 14px;
+  max-width: 46ch;
+  font-size: 0.75rem;
+  line-height: 1.5;
   color: var(--text-soft);
 }
 .footer-cols {

@@ -1,7 +1,8 @@
 <script>
-    // The page's background grid, drawn on a canvas so it can react: a click (or a tap) sends a wave out from
-    // that point, bending the grid lines, turning the lines at the wave front blue and spreading a blue tint.
-    // Without JavaScript, or with reduced motion, the plain CSS grid in app.css stays (see html.js-grid).
+    // The page's background grid, drawn on a canvas so it can react: a click (or a tap) on the empty background
+    // sends a gentle wave out from that point, bending the grid lines, tinting the lines at the wave front blue
+    // and spreading a faint blue glow. Clicks on anything in the foreground (header, text, cards, buttons,
+    // links, footer) don't. Without JavaScript, or with reduced motion, the plain CSS grid in app.css stays.
     import { onMount } from 'svelte';
 
     let canvas;
@@ -15,11 +16,16 @@
         const LINE = 'rgba(0, 0, 0, 0.045)';      // --grid
         const BLUE = '37, 99, 235';               // --accent
         const STEP = 8;                           // px between points on a bent line
-        const SPEED = 0.8;                        // wave speed, px per ms
-        const LIFE = 1600;                        // ms until a wave is gone
-        const BAND = 48;                          // width of the wave front, px
-        const PUSH = 14;                          // how far the front pushes the lines, px
-        const MAX_WAVES = 6;
+        const SPEED = 0.7;                        // wave speed, px per ms
+        const LIFE = 1500;                        // ms until a wave is gone
+        const BAND = 40;                          // width of the wave front, px
+        const PUSH = 7;                           // how far the front pushes the lines, px
+        const TINT = [0.015, 0.025, 0.06];        // glow: centre, inside, at the front
+        const FRONT_LINES = 0.25;                 // opacity of the blue lines at the front
+        const MAX_WAVES = 4;
+        // Anything that reads as foreground. A click inside one of these doesn't start a wave.
+        const FOREGROUND = 'header, footer, nav, a, button, input, textarea, select, label, summary, details, img, svg, figure, '
+            + 'h1, h2, h3, h4, p, li, .kicker, .eyebrow, .product-card, .about-stats, .cta-inner, .engage-grid > div, .back-to-top';
 
         let w = 0, h = 0, frame = 0;
         const waves = [];
@@ -81,9 +87,9 @@
                 const age = now - wave.t0, fade = 1 - age / LIFE;
                 const r = Math.max(1, age * SPEED), outer = r + BAND;
                 const g = ctx.createRadialGradient(wave.x, wave.y, 0, wave.x, wave.y, outer);
-                g.addColorStop(0, `rgba(${BLUE}, ${0.03 * fade})`);
-                g.addColorStop(Math.max(0, (r - BAND) / outer), `rgba(${BLUE}, ${0.05 * fade})`);
-                g.addColorStop(r / outer, `rgba(${BLUE}, ${0.12 * fade})`);
+                g.addColorStop(0, `rgba(${BLUE}, ${TINT[0] * fade})`);
+                g.addColorStop(Math.max(0, (r - BAND) / outer), `rgba(${BLUE}, ${TINT[1] * fade})`);
+                g.addColorStop(r / outer, `rgba(${BLUE}, ${TINT[2] * fade})`);
                 g.addColorStop(1, `rgba(${BLUE}, 0)`);
                 ctx.fillStyle = g;
                 ctx.beginPath();
@@ -105,7 +111,7 @@
                 ctx.arc(wave.x, wave.y, Math.max(0, r - BAND), 0, Math.PI * 2, true);
                 ctx.clip();
                 gridPath(now);
-                ctx.strokeStyle = `rgba(${BLUE}, ${0.45 * fade})`;
+                ctx.strokeStyle = `rgba(${BLUE}, ${FRONT_LINES * fade})`;
                 ctx.stroke();
                 ctx.restore();
             }
@@ -119,9 +125,11 @@
             if (!frame) frame = requestAnimationFrame(draw);
         }
 
-        // Mouse: a wave on every press. Touch and pen: only on a tap, so scrolling doesn't set one off.
+        // Mouse: a wave on a press on the background. Touch and pen: only on a tap, so scrolling doesn't set one off.
+        const onBackground = (e) => e.target instanceof Element && !e.target.closest(FOREGROUND);
         let touch = null;
         const onDown = (e) => {
+            if (!onBackground(e)) { touch = null; return; }
             if (e.pointerType === 'mouse') { if (e.button === 0) start(e.clientX, e.clientY); }
             else touch = { x: e.clientX, y: e.clientY, t: performance.now() };
         };

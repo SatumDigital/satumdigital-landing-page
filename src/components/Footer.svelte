@@ -7,6 +7,7 @@
             </a>
             <p class="footer-tag">SaaS products and client work, from Ontario, Canada.</p>
             <p class="footer-copy">© 2026 Satum Digital Inc. · Ontario, Canada</p>
+            <p class="footer-tm">Microsoft, .NET and Azure are trademarks of the Microsoft group of companies. Cloudflare and GitHub are trademarks of their owners. Naming them here doesn't imply endorsement.</p>
         </div>
         <div class="footer-cols">
             <div>

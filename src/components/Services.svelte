@@ -10,13 +10,13 @@
             <ul class="service-list reveal">
                 <li class="service-row">
                     <h3>Software solutions</h3>
-                    <p>Custom web apps, internal tools and automations, built around how your team actually works.</p>
+                    <p>Custom web apps, internal tools and automations on Microsoft .NET, built around how your team actually works.</p>
                     <span class="service-meta">Web apps · Internal tools · Automations</span>
                 </li>
                 <li class="service-row">
                     <h3>Cloud &amp; security</h3>
-                    <p>Migrations, hardening and monitoring on Azure and other clouds, with the backups and access controls you should already have.</p>
-                    <span class="service-meta">Azure · Migrations · Security</span>
+                    <p>Migrations, hardening and monitoring on Microsoft Azure, Cloudflare and other clouds, with the backups and access controls you should already have.</p>
+                    <span class="service-meta">Migrations · Security · Monitoring</span>
                 </li>
                 <li class="service-row">
                     <h3>Managed IT</h3>
