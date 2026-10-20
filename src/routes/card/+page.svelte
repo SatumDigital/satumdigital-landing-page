@@ -1,28 +1,44 @@
 <script>
     let { data } = $props();
 
-    // NOTE: GitHub / X / Calendly URLs below are placeholders — swap for real ones when ready.
-    const PLACEHOLDER_GITHUB   = 'https://github.com/satumdigital';
-    const PLACEHOLDER_X        = 'https://x.com/satumdigital';
-    const PLACEHOLDER_CALENDLY = 'https://calendly.com/satumdigital/intro';
+    const NAME = 'Michael Botelho';
+    const TITLE = 'Founder & Principal Engineer';
+    const ORG = 'Satum Digital Inc.';
+    const EMAIL = 'michael@satumdigital.ca';
+    const PHONE = '+12898931076';
+    const PHONE_DISPLAY = '(289) 893-1076';
+    const SITE = 'https://www.satumdigital.ca';
 
-    function downloadVCard() {
-        // vCard 3.0 — universally supported by iOS, Android, Outlook, macOS Contacts, etc.
+    // vCard 3.0 lines longer than 75 characters are folded onto continuation lines that start with a space.
+    const fold = (line) => line.match(/.{1,74}/g).join('\r\n ');
+
+    async function downloadVCard() {
+        // vCard 3.0 — universally supported by iOS, Android, Outlook, macOS Contacts, etc. Includes the photo,
+        // so the contact shows it once saved.
         const lines = [
             'BEGIN:VCARD',
             'VERSION:3.0',
-            'FN:Michael Botelho',
+            `FN:${NAME}`,
             'N:Botelho;Michael;;;',
-            'ORG:Satum Digital',
-            'TITLE:Founder & Principal Engineer',
-            'EMAIL;TYPE=WORK:michael@satumdigital.ca',
-            'TEL;TYPE=WORK,VOICE:+12898931076',
-            'URL:https://www.satumdigital.ca',
-            'URL:https://www.linkedin.com/in/michael-m-botelho/',
-            'END:VCARD',
+            `ORG:${ORG}`,
+            `TITLE:${TITLE}`,
+            `EMAIL;TYPE=WORK:${EMAIL}`,
+            `TEL;TYPE=WORK,VOICE:${PHONE}`,
+            `URL:${SITE}`,
         ];
-        const blob = new Blob([lines.join('\r\n')], { type: 'text/vcard;charset=utf-8' });
-        const url = URL.createObjectURL(blob);
+        try {
+            const blob = await fetch('/michael-botelho-192.jpg').then((r) => r.blob());
+            const b64 = await new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(String(reader.result).split(',')[1]);
+                reader.readAsDataURL(blob);
+            });
+            lines.push(fold(`PHOTO;ENCODING=b;TYPE=JPEG:${b64}`));
+        } catch {
+            // no photo if it can't be loaded; the rest of the card still saves
+        }
+        lines.push('END:VCARD');
+        const url = URL.createObjectURL(new Blob([lines.join('\r\n')], { type: 'text/vcard;charset=utf-8' }));
         const a = document.createElement('a');
         a.href = url;
         a.download = 'michael-botelho.vcf';
@@ -34,10 +50,12 @@
 </script>
 
 <svelte:head>
-    <title>Michael Botelho — Satum Digital</title>
-    <meta name="description" content="Digital business card for Michael Botelho, Founder of Satum Digital." />
-    <meta property="og:title" content="Michael Botelho — Satum Digital" />
-    <meta property="og:description" content="Founder & Principal Engineer at Satum Digital. Tap to save my contact info." />
+    <title>{NAME} · Satum Digital</title>
+    <meta name="description" content="Contact card for {NAME}, {TITLE} at {ORG}." />
+    <meta property="og:title" content="{NAME} · Satum Digital" />
+    <meta property="og:description" content="{TITLE} at {ORG}. Tap to save my contact details." />
+    <meta property="og:image" content="https://www.satumdigital.ca/michael-botelho.jpg" />
+    <meta name="twitter:card" content="summary" />
     <meta name="robots" content="noindex" />
 </svelte:head>
 
@@ -48,28 +66,29 @@
             <span class="brand-word">Satum Digital</span>
         </a>
 
-        <div class="headshot" aria-hidden="true">
-            <span>MB</span>
+        <img class="headshot" src="/michael-botelho.jpg" width="400" height="400" alt="{NAME}" />
+
+        <div class="who">
+            <h1 class="name">{NAME}</h1>
+            <p class="title">{TITLE}</p>
+            <p class="org">{ORG} · Ontario, Canada</p>
         </div>
 
-        <h1 class="name">Michael Botelho</h1>
-        <p class="title">Founder &amp; <span class="accent-soft">Principal Engineer</span></p>
-
         <div class="contacts">
-            <a href="mailto:michael@satumdigital.ca" class="contact-row">
+            <a href="mailto:{EMAIL}" class="contact-row">
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
                     <path d="M3 7l9 7 9-7" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
                 </svg>
-                <span>michael@satumdigital.ca</span>
+                <span>{EMAIL}</span>
             </a>
-            <a href="tel:+12898931076" class="contact-row">
+            <a href="tel:{PHONE}" class="contact-row">
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <path d="M5 4h3l2 5-2.5 1.5a11 11 0 005 5L14 13l5 2v3a2 2 0 01-2 2A14 14 0 013 6a2 2 0 012-2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
                 </svg>
-                <span>(289) 893-1076</span>
+                <span>{PHONE_DISPLAY}</span>
             </a>
-            <a href="https://www.satumdigital.ca" class="contact-row" target="_blank" rel="noopener">
+            <a href={SITE} class="contact-row">
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
                     <path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18" stroke="currentColor" stroke-width="1.5"/>
@@ -78,24 +97,12 @@
             </a>
         </div>
 
-        <div class="socials">
-            <a href="https://www.linkedin.com/in/michael-m-botelho/" target="_blank" rel="noopener">LinkedIn</a>
-            <a href={PLACEHOLDER_GITHUB} target="_blank" rel="noopener">GitHub</a>
-            <a href={PLACEHOLDER_X} target="_blank" rel="noopener">X</a>
-            <a href={PLACEHOLDER_CALENDLY} target="_blank" rel="noopener">Calendly</a>
-        </div>
-
-        <div class="actions">
-            <button class="btn btn-primary" type="button" onclick={downloadVCard}>
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Save to Contacts
-            </button>
-            <a class="btn btn-outline" href="mailto:michael@satumdigital.ca?subject=Book%20a%2030-min%20call">
-                Book a 30-min call <span aria-hidden="true">→</span>
-            </a>
-        </div>
+        <button class="btn btn-primary" type="button" onclick={downloadVCard}>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Save to contacts
+        </button>
 
         <div class="qr-wrap">
             <div class="qr">{@html data.qrSvg}</div>
@@ -105,7 +112,7 @@
 </div>
 
 <style>
-    /* The body has a global grid pattern (from app.css). The full-viewport tinted wrapper covers it. */
+    /* A plain soft background behind the card (this page doesn't use the site's grid). */
     .card-page {
         min-height: 100vh;
         width: 100%;
@@ -113,21 +120,21 @@
         display: flex;
         align-items: flex-start;
         justify-content: center;
-        padding: 56px 20px;
+        padding: 48px 20px;
     }
 
     .card {
         width: 100%;
-        max-width: 440px;
+        max-width: 420px;
         background: var(--bg);
         border: 1px solid var(--border);
         border-radius: var(--radius-xl);
         box-shadow: var(--shadow-lg);
-        padding: 44px 36px 36px;
+        padding: 36px 32px 32px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 18px;
+        gap: 20px;
         text-align: center;
     }
 
@@ -136,7 +143,6 @@
         align-items: center;
         gap: 10px;
         color: var(--text);
-        margin-bottom: 4px;
     }
     .brand-mark { width: 20px; height: 20px; }
     .brand-word {
@@ -147,113 +153,82 @@
     }
 
     .headshot {
-        width: 128px;
-        height: 128px;
+        width: 132px;
+        height: 132px;
         border-radius: 50%;
-        background: var(--bg-tint);
-        border: 1px solid var(--border);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 8px;
-    }
-    .headshot span {
-        font-family: var(--serif);
-        font-size: 2.4rem;
-        color: var(--text-soft);
-        letter-spacing: -0.02em;
+        object-fit: cover;
+        border: 4px solid var(--bg);
+        box-shadow: 0 0 0 1px var(--border), var(--shadow);
+        margin-top: 4px;
     }
 
+    .who { display: flex; flex-direction: column; gap: 4px; }
     .name {
         font-family: var(--serif);
-        font-size: 1.85rem;
+        font-size: 1.75rem;
         font-weight: 400;
         letter-spacing: -0.02em;
-        margin: 0;
+        margin: 0 0 2px;
         color: var(--text);
     }
     .title {
-        color: var(--text-muted);
-        font-size: 1.0rem;
-        margin: -6px 0 0;
+        color: var(--text);
+        font-size: 0.98rem;
+        font-weight: 500;
+        margin: 0;
+    }
+    .org {
+        color: var(--text-soft);
+        font-size: 0.88rem;
+        margin: 0;
     }
 
     .contacts {
         display: flex;
         flex-direction: column;
-        gap: 8px;
         width: 100%;
-        margin-top: 14px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
     }
     .contact-row {
         display: flex;
         align-items: center;
-        gap: 12px;
-        padding: 12px 16px;
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
+        gap: 14px;
+        padding: 14px 18px;
         color: var(--text);
         font-size: 0.95rem;
-        transition: border-color .2s ease, background .2s ease, color .2s ease;
+        transition: background .2s ease, color .2s ease;
     }
+    .contact-row + .contact-row { border-top: 1px solid var(--border-soft); }
     .contact-row:hover {
-        border-color: var(--accent);
-        background: var(--accent-soft);
+        background: var(--bg-soft);
         color: var(--accent);
     }
     .contact-row svg {
         width: 18px;
         height: 18px;
-        color: var(--accent);
+        color: var(--text-soft);
         flex-shrink: 0;
     }
+    .contact-row:hover svg { color: var(--accent); }
     .contact-row span {
         flex: 1;
         text-align: left;
     }
 
-    .socials {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px;
-        margin-top: 4px;
-    }
-    .socials a {
-        font-size: 0.83rem;
-        padding: 6px 14px;
-        border: 1px solid var(--border);
-        border-radius: 999px;
-        color: var(--text-muted);
-        transition: color .2s ease, border-color .2s ease;
-    }
-    .socials a:hover {
-        color: var(--accent);
-        border-color: var(--accent);
-    }
-
-    .actions {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        margin-top: 14px;
-    }
     .btn {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         gap: 8px;
-        padding: 13px 22px;
+        width: 100%;
+        padding: 14px 22px;
         border-radius: var(--radius);
-        font-weight: 500;
-        font-size: 0.95rem;
-        font-family: var(--sans);
+        font: 500 0.95rem var(--sans);
         border: 1px solid transparent;
         cursor: pointer;
-        white-space: nowrap;
-        width: 100%;
-        transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+        transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
     }
     .btn-primary {
         background: var(--text);
@@ -265,22 +240,10 @@
         transform: translateY(-1px);
         box-shadow: 0 8px 24px -10px rgba(37, 99, 235, 0.6);
     }
-    .btn-primary svg {
-        width: 16px; height: 16px;
-    }
-    .btn-outline {
-        border-color: var(--border);
-        background: var(--bg);
-        color: var(--text);
-    }
-    .btn-outline:hover {
-        border-color: var(--accent);
-        color: var(--accent);
-    }
+    .btn-primary svg { width: 16px; height: 16px; }
 
     .qr-wrap {
         width: 100%;
-        margin-top: 22px;
         padding-top: 22px;
         border-top: 1px solid var(--border-soft);
         display: flex;
@@ -288,10 +251,7 @@
         align-items: center;
         gap: 10px;
     }
-    .qr {
-        width: 132px;
-        height: 132px;
-    }
+    .qr { width: 120px; height: 120px; }
     .qr :global(svg) {
         width: 100%;
         height: 100%;
