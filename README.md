@@ -26,5 +26,20 @@ npm run preview  # preview the production build
 
 ## Routes
 
-- `/` — marketing site (Hero, About, Services, Process, Engagement, FAQs, CTA)
+- `/` — company site for Satum Digital Inc.: Hero, ibelo (our first product), About, Client work (services and
+  engagement models), FAQs, Contact. Title, description, preview tags and structured data are in
+  `src/routes/(site)/+page.svelte`.
 - `/card` — Michael's digital business card (vCard download, QR, contact links). `noindex` so it doesn't show up in search.
+
+## Search and link previews
+
+- The canonical address is `https://www.satumdigital.ca/`. `static/robots.txt` points to `static/sitemap.xml`
+  (update its `lastmod` when the page changes).
+- The page links to ibelo.app (the product section, FAQs, contact and footer), and ibelo.app links back. Keep
+  those links on the plain `https://ibelo.app/` addresses (no tracking parameters), so search engines credit them
+  to the right page.
+- `static/og.png` is the link-preview image, drawn from `scripts/og.html`. Re-render it with
+  `node scripts/render-og.mjs` (needs Chrome, and the brand kit next to this repo).
+- Logos: `static/logo-mark.svg` is the black mark used on the page (header, footer, card). `static/favicon.svg` is
+  for browser tabs only: it turns white in dark mode, so it would vanish on the white page.
+- Location in public copy is "Ontario, Canada" only, with no street address.

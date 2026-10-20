@@ -1,0 +1,57 @@
+<!doctype html>
+<!-- Source for static/og.png (the 1200x630 link-preview image). Re-render with:
+     node scripts/render-og.mjs   (needs Chrome) -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Libre+Baskerville:ital,wght@0,400;1,400&display=block" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    position: relative;
+    background-color: #ffffff;
+    background-image:
+      linear-gradient(to right, rgba(0, 0, 0, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.045) 1px, transparent 1px);
+    background-size: 80px 80px;
+    font-family: Inter, sans-serif;
+    color: #0a0a0a;
+  }
+  body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 55% at 30% 45%, rgba(37, 99, 235, 0.08), transparent 70%);
+  }
+  .wrap { position: relative; padding: 72px 88px; height: 100%; display: flex; flex-direction: column; }
+  .logo { width: 320px; height: auto; }
+  h1 {
+    margin-top: 72px;
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .accent {
+    color: #2563eb;
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 10px;
+  }
+  .sub { margin-top: 28px; font-size: 26px; color: #525252; }
+  .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; font-size: 22px; color: #737373; }
+  .label { font-size: 16px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #2563eb; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <img class="logo" src="../../SatumDigital Brandkit/Web/header-400x100-dark-text.svg" alt="">
+    <h1>Build the <span class="accent">digital backbone</span><br>of your business.</h1>
+    <p class="sub">A Canadian software company. Maker of ibelo.</p>
+    <div class="foot"><span>satumdigital.ca</span><span class="label">Ontario, Canada</span></div>
+  </div>
+</body>
+</html>

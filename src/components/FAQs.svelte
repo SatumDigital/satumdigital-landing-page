@@ -6,20 +6,20 @@
         </div>
         <div class="faq-list reveal">
             <details class="faq">
+                <summary>What is ibelo?<span class="faq-toggle" aria-hidden="true"></span></summary>
+                <div class="faq-body"><p>ibelo is our first product: an AI platform where agents help you plan, build, launch and run a side hustle or another income stream. It asks before anything publishes, spends money or sends a message. It's in early development. Learn more and join the waitlist at <a href="https://ibelo.app/">ibelo.app</a>.</p></div>
+            </details>
+            <details class="faq">
+                <summary>When can I use ibelo?<span class="faq-toggle" aria-hidden="true"></span></summary>
+                <div class="faq-body"><p>ibelo starts with an invite-only private beta. Join the waitlist at <a href="https://ibelo.app/">ibelo.app</a> and you'll get an email when invites go out. Updates are on <a href="https://ibelo.app/news/">ibelo news</a>.</p></div>
+            </details>
+            <details class="faq">
+                <summary>Do you still take on client work?<span class="faq-toggle" aria-hidden="true"></span></summary>
+                <div class="faq-body"><p>Yes, a few projects at a time: software, cloud and security, and consulting. Tell us what you're working on and we'll tell you whether we can help.</p></div>
+            </details>
+            <details class="faq">
                 <summary>How do you scope and price projects?<span class="faq-toggle" aria-hidden="true"></span></summary>
-                <div class="faq-body"><p>We start with a free 30-minute call to understand the work. From there, we send a written proposal with fixed scope, milestones, and pricing — usually within 2 business days.</p></div>
-            </details>
-            <details class="faq">
-                <summary>Do you offer ongoing support after delivery?<span class="faq-toggle" aria-hidden="true"></span></summary>
-                <div class="faq-body"><p>Yes. Most clients move into a managed service plan after launch. We don't disappear when the build is done — that's when the real work starts.</p></div>
-            </details>
-            <details class="faq">
-                <summary>What does a typical engagement look like?<span class="faq-toggle" aria-hidden="true"></span></summary>
-                <div class="faq-body"><p>Most projects run 4–12 weeks of focused build time, followed by a monthly retainer for support and improvements. Custom engagements are scoped per situation.</p></div>
-            </details>
-            <details class="faq">
-                <summary>Can you work alongside our existing team?<span class="faq-toggle" aria-hidden="true"></span></summary>
-                <div class="faq-body"><p>Often, yes. We frequently embed with internal teams as senior contractors, advisors, or fractional leads. Your engineers don't need to be replaced — they need leverage.</p></div>
+                <div class="faq-body"><p>We start with a free 30-minute call to understand the work. From there, we send a written proposal with fixed scope, milestones and pricing, usually within 2 business days.</p></div>
             </details>
             <details class="faq">
                 <summary>Do you sign NDAs?<span class="faq-toggle" aria-hidden="true"></span></summary>
@@ -27,7 +27,7 @@
             </details>
             <details class="faq">
                 <summary>Where are you based?<span class="faq-toggle" aria-hidden="true"></span></summary>
-                <div class="faq-body"><p>Our team is based in Canada and works with clients across North America. Remote-first, with on-site engagements when it matters.</p></div>
+                <div class="faq-body"><p>Ontario, Canada. We work remotely with clients across North America.</p></div>
             </details>
         </div>
     </div>

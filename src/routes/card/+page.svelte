@@ -44,7 +44,7 @@
 <div class="card-page">
     <article class="card">
         <a href="/" class="brand" aria-label="Satum Digital home">
-            <img src="/favicon.svg" alt="" class="brand-mark" />
+            <img src="/logo-mark.svg" alt="" class="brand-mark" />
             <span class="brand-word">Satum Digital</span>
         </a>
 
@@ -138,11 +138,12 @@
         color: var(--text);
         margin-bottom: 4px;
     }
-    .brand-mark { width: 26px; height: 26px; }
+    .brand-mark { width: 20px; height: 20px; }
     .brand-word {
         font-family: var(--serif);
-        font-size: 1.05rem;
+        font-size: 1.2rem;
         letter-spacing: -0.005em;
+        line-height: 1;
     }
 
     .headshot {

@@ -22,17 +22,16 @@
 <header class="site-header" class:scrolled>
     <div class="container header-inner">
         <a href="/" class="logo" aria-label="Satum Digital home">
-            <img src="favicon.svg" alt="" class="logo-mark" />
+            <img src="/logo-mark.svg" alt="" class="logo-mark" width="24" height="24" />
             <span class="logo-word">Satum Digital</span>
         </a>
         <nav class="nav-desktop" aria-label="Primary">
+            <a href="#ibelo">ibelo</a>
             <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#process">Process</a>
-            <a href="#engage">Engage</a>
+            <a href="#services">Client work</a>
             <a href="#faqs">FAQs</a>
         </nav>
-        <a href="#contact" class="btn btn-outline btn-header">Book a call</a>
+        <a href="#contact" class="btn btn-outline btn-header">Get in touch</a>
         <button
             class="menu-toggle"
             aria-label="Open menu"
@@ -43,11 +42,10 @@
         </button>
     </div>
     <div class="nav-mobile" class:open={menuOpen}>
+        <a href="#ibelo" onclick={closeMenu}>ibelo</a>
         <a href="#about" onclick={closeMenu}>About</a>
-        <a href="#services" onclick={closeMenu}>Services</a>
-        <a href="#process" onclick={closeMenu}>Process</a>
-        <a href="#engage" onclick={closeMenu}>Engage</a>
+        <a href="#services" onclick={closeMenu}>Client work</a>
         <a href="#faqs" onclick={closeMenu}>FAQs</a>
-        <a href="#contact" class="btn btn-primary btn-block" onclick={closeMenu}>Book a call</a>
+        <a href="#contact" class="btn btn-primary btn-block" onclick={closeMenu}>Get in touch</a>
     </div>
 </header>

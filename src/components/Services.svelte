@@ -1,9 +1,9 @@
 <section class="services" id="services">
     <div class="container">
         <div class="section-head reveal">
-            <span class="kicker">Services</span>
-            <h2 class="section-title">Everything you need <span class="accent-soft">in one room.</span></h2>
-            <p class="section-sub">A small senior team that handles the strategy, the build, and the boring stuff that keeps it running.</p>
+            <span class="kicker">Client work</span>
+            <h2 class="section-title">We also build <span class="accent-soft">for clients.</span></h2>
+            <p class="section-sub">Senior help with the strategy, the build, and the systems that keep it running. We take on a few projects at a time, scoped and quoted after a short call.</p>
         </div>
         <div class="services-grid reveal">
             <article class="service">
@@ -58,6 +58,20 @@
                     <li>Migrations</li><li>Hardening</li><li>Observability</li>
                 </ul>
             </article>
+        </div>
+        <div class="engage-row reveal" id="engage">
+            <div class="engage-item">
+                <div class="engagement-tag">Project</div>
+                <p><strong>Fixed scope, fixed price.</strong> A new tool, a migration or an audit, with a written proposal and milestones.</p>
+            </div>
+            <div class="engage-item">
+                <div class="engagement-tag">Retainer</div>
+                <p><strong>Ongoing capacity.</strong> Development hours, support or managed IT each month, reviewed every quarter.</p>
+            </div>
+            <div class="engage-item">
+                <div class="engagement-tag">Fractional</div>
+                <p><strong>Senior direction, part-time.</strong> Technical leadership without a full-time hire, typically a day a week.</p>
+            </div>
         </div>
     </div>
 </section>
