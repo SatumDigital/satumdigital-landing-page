@@ -490,6 +490,8 @@ section { padding: var(--section-pad) 0; }
   letter-spacing: -0.01em;
   color: #8a8a8a;
 }
+.stack-logo { display: inline-flex; align-items: center; gap: 6px; }
+.stack-logo svg { width: 18px; height: 18px; fill: currentColor; }
 
 /* ---------- Product (ibelo) ---------- */
 .product-card {
@@ -687,6 +689,8 @@ section { padding: var(--section-pad) 0; }
   font-size: 0.85rem;
   color: var(--text-soft);
 }
+.footer-badge { display: inline-block; margin-top: 18px; }
+.footer-badge img { display: block; width: 138px; height: auto; border-radius: 6px; }
 .footer-tm {
   margin-top: 14px;
   max-width: 46ch;

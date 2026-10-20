@@ -7,6 +7,10 @@
             </a>
             <p class="footer-tag">SaaS products and client work, from Ontario, Canada.</p>
             <p class="footer-copy">© 2026 Satum Digital Inc. · Ontario, Canada</p>
+            <!-- Cloudflare's official web badge, unaltered (badges are the one Cloudflare logo use customers may make) -->
+            <a class="footer-badge" href="https://www.cloudflare.com/" rel="noopener">
+                <img src="/brand/protected-by-cloudflare.png" width="138" height="48" alt="Protected by Cloudflare" loading="lazy" decoding="async" />
+            </a>
             <p class="footer-tm">Microsoft, .NET and Azure are trademarks of the Microsoft group of companies. Cloudflare and GitHub are trademarks of their owners. Naming them here doesn't imply endorsement.</p>
         </div>
         <div class="footer-cols">

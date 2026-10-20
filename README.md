@@ -51,6 +51,9 @@ size, strength) are constants at the top of the component. With JavaScript off o
 - Logos: `static/logo-mark.svg` is the black mark used on the page (header, footer, card). `static/favicon.svg` is
   for browser tabs only: it turns white in dark mode, so it would vanish on the white page.
 - Location in public copy is "Ontario, Canada" only, with no street address.
-- Third-party products (Microsoft .NET, Microsoft Azure, Cloudflare, GitHub) are named in text only, with the
-  trademark line in the footer. Microsoft doesn't allow its logos or product icons without a licence. Partner badges
-  would come with joining the Microsoft partner program.
+- Third-party marks follow each owner's rules, with the trademark line in the footer:
+  - Microsoft (.NET, Azure): names in text only. Microsoft doesn't allow its logos or product icons without a
+    licence; a partner badge would come with joining Microsoft's partner program.
+  - GitHub: its official mark (from Primer Octicons) next to the name, unmodified, in grey, smaller than our brand.
+  - Cloudflare: the official "Protected by Cloudflare" web badge in the footer (`static/brand/`), unaltered. Other
+    Cloudflare logo use needs Cloudflare's written permission.
