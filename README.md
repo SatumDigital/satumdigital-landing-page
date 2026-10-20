@@ -1,6 +1,6 @@
 # Satum Digital — landing page
 
-Marketing site + digital business card. SvelteKit + Vite, statically prerendered, deployed to Cloudflare Pages.
+Company site for Satum Digital Inc. SvelteKit + Vite, statically prerendered, deployed to Cloudflare Pages.
 
 ## Local development
 
@@ -29,7 +29,6 @@ npm run preview  # preview the production build
 - `/` — company site for Satum Digital Inc.: Hero, ibelo (our first SaaS product), About, Client work (services and
   engagement models), FAQs, Contact. Title, description, preview tags and structured data are in
   `src/routes/(site)/+page.svelte`.
-- `/card` — Michael's digital business card (vCard download, QR, contact links). `noindex` so it doesn't show up in search.
 
 ## Background grid
 
@@ -48,7 +47,7 @@ size, strength) are constants at the top of the component. With JavaScript off o
   to the right page.
 - `static/og.png` is the link-preview image, drawn from `scripts/og.html`. Re-render it with
   `node scripts/render-og.mjs` (needs Chrome, and the brand kit next to this repo).
-- Logos: `static/logo-mark.svg` is the black mark used on the page (header, footer, card). `static/favicon.svg` is
+- Logos: `static/logo-mark.svg` is the black mark used on the page (header, footer). `static/favicon.svg` is
   for browser tabs only: it turns white in dark mode, so it would vanish on the white page.
 - Location in public copy is "Ontario, Canada" only, with no street address.
 - Third-party marks follow each owner's rules, with the trademark line in the footer:
