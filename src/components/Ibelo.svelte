@@ -1,11 +1,11 @@
-<!-- Our first product. ibelo has its own brand (lowercase name, Outfit wordmark, its own mark); it sits here
+<!-- Our first SaaS product. ibelo has its own brand (lowercase name, Outfit wordmark, its own mark); it sits here
      inside Satum Digital's style. Links go to the canonical https://ibelo.app/ addresses. -->
 <section class="product" id="ibelo">
     <div class="container">
         <div class="section-head reveal">
-            <span class="kicker">Our first product</span>
+            <span class="kicker">Our first SaaS product</span>
             <h2 class="section-title">Any income stream, <span class="accent-soft">one platform.</span></h2>
-            <p class="section-sub">ibelo is an AI platform for side hustles and other income streams. Its agents do the work, and you stay in charge.</p>
+            <p class="section-sub">ibelo is a SaaS platform for side hustles and other income streams. Its AI agents do the work, and you stay in charge.</p>
         </div>
 
         <div class="product-card reveal">

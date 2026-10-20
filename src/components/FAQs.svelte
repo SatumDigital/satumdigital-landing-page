@@ -7,15 +7,15 @@
         <div class="faq-list reveal">
             <details class="faq">
                 <summary>What is ibelo?<span class="faq-toggle" aria-hidden="true"></span></summary>
-                <div class="faq-body"><p>ibelo is our first product: an AI platform where agents help you plan, build, launch and run a side hustle or another income stream. It asks before anything publishes, spends money or sends a message. It's in early development. Learn more and join the waitlist at <a href="https://ibelo.app/">ibelo.app</a>.</p></div>
+                <div class="faq-body"><p>ibelo is our first SaaS product: an AI platform where agents help you plan, build, launch and run a side hustle or another income stream. It asks before anything publishes, spends money or sends a message. It's in early development. Learn more and join the waitlist at <a href="https://ibelo.app/">ibelo.app</a>.</p></div>
             </details>
             <details class="faq">
                 <summary>When can I use ibelo?<span class="faq-toggle" aria-hidden="true"></span></summary>
                 <div class="faq-body"><p>ibelo starts with an invite-only private beta. Join the waitlist at <a href="https://ibelo.app/">ibelo.app</a> and you'll get an email when invites go out. Updates are on <a href="https://ibelo.app/news/">ibelo news</a>.</p></div>
             </details>
             <details class="faq">
-                <summary>Do you still take on client work?<span class="faq-toggle" aria-hidden="true"></span></summary>
-                <div class="faq-body"><p>Yes, a few projects at a time: software, cloud and security, and consulting. Tell us what you're working on and we'll tell you whether we can help.</p></div>
+                <summary>Do you take on client work?<span class="faq-toggle" aria-hidden="true"></span></summary>
+                <div class="faq-body"><p>Yes. Software, cloud and security, managed IT and consulting, for businesses of any size. Tell us what you're working on and we'll tell you how we can help.</p></div>
             </details>
             <details class="faq">
                 <summary>How do you scope and price projects?<span class="faq-toggle" aria-hidden="true"></span></summary>

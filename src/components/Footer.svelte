@@ -5,7 +5,7 @@
                 <img src="/logo-mark.svg" alt="" class="logo-mark" width="24" height="24" />
                 <span class="logo-word">Satum Digital</span>
             </a>
-            <p class="footer-tag">Software products and client work, from Ontario, Canada.</p>
+            <p class="footer-tag">SaaS products and client work, from Ontario, Canada.</p>
             <p class="footer-copy">© 2026 Satum Digital Inc. · Ontario, Canada</p>
         </div>
         <div class="footer-cols">

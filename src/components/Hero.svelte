@@ -5,7 +5,7 @@
             Build the <span class="accent">digital backbone</span><br/>of your business.
         </h1>
         <p class="lead reveal">
-            Satum Digital Inc. is a Canadian software company. We build products that help people start and run a business, beginning with ibelo, and we take on a few client builds each year.
+            Satum Digital Inc. is a Canadian software company. We build SaaS products that help people start and run a business, beginning with ibelo, and we build software for clients.
         </p>
         <div class="hero-ctas reveal">
             <a href="#ibelo" class="btn btn-primary">Meet ibelo</a>

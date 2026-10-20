@@ -31,6 +31,13 @@ npm run preview  # preview the production build
   `src/routes/(site)/+page.svelte`.
 - `/card` — Michael's digital business card (vCard download, QR, contact links). `noindex` so it doesn't show up in search.
 
+## Background grid
+
+The grid behind the page is drawn on a canvas (`src/components/GridCanvas.svelte`). A click, or a tap on phones
+(scrolling doesn't count), sends a wave out from that point: the grid lines bend, the lines at the wave front turn
+blue, and a blue tint spreads and fades. The settings (speed, size, strength) are constants at the top of the
+component. With JavaScript off or "reduce motion" on, the plain CSS grid in `app.css` shows instead.
+
 ## Search and link previews
 
 - The canonical address is `https://www.satumdigital.ca/`. `static/robots.txt` points to `static/sitemap.xml`
